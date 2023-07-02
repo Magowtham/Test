@@ -1,0 +1,24 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <video id="video-element"></video>
+    <script>
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+  .then((stream) => {
+    // Access granted, stream contains the user's media
+    // Use the stream to play the media on the user's screen
+    const videoElement = document.getElementById('video-element');
+    videoElement.srcObject = stream;
+    videoElement.play();
+  })
+  .catch((error) => {
+    // Access denied or error occurred
+    console.error('Error accessing user media:', error);
+  });
+
+    </script>
+  </body>
+</html>
